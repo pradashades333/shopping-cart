@@ -39,18 +39,19 @@ const Cart = ({ cart, setCart }) => {
               <img src={item.image} alt={item.title} width="100" />
               <h3>{item.title}</h3>
               <p>${item.price}</p>
-              
+
               <div>
                 <button onClick={() => decreaseQuantity(item.id)}>-</button>
                 <span>Quantity: {item.quantity}</span>
                 <button onClick={() => increaseQuantity(item.id)}>+</button>
               </div>
-              
+
               <button onClick={() => removeFromCart(item.id)}>
                 Remove
               </button>
             </div>
           ))}
+          <h2>Total: ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</h2>
         </div>
       )}
     </div>
