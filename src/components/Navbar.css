@@ -1,0 +1,20 @@
+nav {
+  background-color: blue;
+  padding: 10px;
+  color: white;
+}
+
+nav h1 {
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
