@@ -1,0 +1,14 @@
+div {
+  text-align: center;
+  padding: 50px;
+  background-color: lightgray;
+}
+
+h1 {
+  color: blue;
+}
+
+p {
+  color: darkgray;
+  font-size: 18px;
+}
