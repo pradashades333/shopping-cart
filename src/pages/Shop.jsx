@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 
-
 const Shop = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,6 +15,22 @@ const Shop = ({ cart, setCart }) => {
     .catch((error) => console.error("error getting products:", error));
   }, []);
 
+  const addToCart = (product) => {
+    const existingItem = cart.find((item) => item.id === product.id);
+    
+    if (existingItem) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
   if (loading) return <h2> loading...</h2>
 
   return (
@@ -27,14 +42,12 @@ const Shop = ({ cart, setCart }) => {
             <img src={product.image} alt={product.title} width="100" />
             <h3>{product.title}</h3>
             <p>${product.price}</p>
-            <button onClick={() => setCart([...cart,product])}>
+            <button onClick={() => addToCart(product)}>
               Add to Cart
             </button>
           </div>
         ))}
-
       </div>
-
     </div>
   );
 };
