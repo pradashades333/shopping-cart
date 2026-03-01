@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  color: #6a0dad;
 }
 
 .cart-item {
@@ -19,7 +20,7 @@ h1 {
 }
 
 button {
-  background-color: #2255cc;
+  background-color: #6a0dad;
   color: white;
   border: none;
   padding: 5px 10px;
