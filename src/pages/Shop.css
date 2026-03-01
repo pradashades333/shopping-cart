@@ -6,7 +6,8 @@
 }
 
 .product-card {
-  border: 1px solid black;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   padding: 10px;
   width: 200px;
   text-align: center;
@@ -15,12 +16,14 @@
 .product-card img {
   width: 100px;
   height: 100px;
+  object-fit: contain;
 }
 
 .product-card button {
-  background-color: blue;
+  background-color: #2255cc;
   color: white;
   border: none;
-  padding: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
 }
