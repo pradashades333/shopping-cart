@@ -1,15 +1,34 @@
 import React from "react";
 
 const Cart = ({ cart, setCart }) => {
-  const removeCart = (productId) => {
-    const newCart = cart.filter((item) => item.id !== productId);
-    setCart(newCart);
+  
+  const removeFromCart = (productId) => {
+    setCart(cart.filter((item) => item.id !== productId));
+  };
+
+  const increaseQuantity = (productId) => {
+    setCart(
+      cart.map((item) =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (productId) => {
+    setCart(
+      cart.map((item) =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
+          : item
+      )
+    );
   };
 
   return (
     <div>
       <h1>Your Cart</h1>
-
       {cart.length === 0 ? (
         <p>Your cart is empty!</p>
       ) : (
@@ -19,7 +38,14 @@ const Cart = ({ cart, setCart }) => {
               <img src={item.image} alt={item.title} width="100" />
               <h3>{item.title}</h3>
               <p>${item.price}</p>
-              <button onClick={() => removeCart(item.id)}>
+              
+              <div>
+                <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                <span>Quantity: {item.quantity}</span>
+                <button onClick={() => increaseQuantity(item.id)}>+</button>
+              </div>
+              
+              <button onClick={() => removeFromCart(item.id)}>
                 Remove
               </button>
             </div>
@@ -29,6 +55,7 @@ const Cart = ({ cart, setCart }) => {
     </div>
   );
 };
+
 
 
 export default Cart;
