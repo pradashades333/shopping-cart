@@ -50,12 +50,12 @@ const Cart = ({ cart, setCart }) => {
                 <button onClick={() => increaseQuantity(item.id)}>+</button>
               </div>
 
-              <button onClick={() => removeFromCart(item.id)}>
+              <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
                 Remove
               </button>
             </div>
           ))}
-          <h2>Total: ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</h2>
+          <h2 className="cart-total">Total: ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</h2>
         </div>
       )}
     </div>
