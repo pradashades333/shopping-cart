@@ -7,9 +7,10 @@ nav {
   justify-content: space-between;
 }
 
-nav h1 {
-  color: white;
-  margin: 0;
+.nav-logo {
+  height: 45px;
+  width: auto;
+  border-radius: 8px;
 }
 
 nav ul {

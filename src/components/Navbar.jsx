@@ -5,7 +5,9 @@ import './Navbar.css';
 const Navbar = ({cartCount}) => {
     return (
         <nav>
-            <h1>Shopping store</h1>
+            <Link to="/">
+                <img src="/logo.jpg" alt="Store logo" className="nav-logo" />
+            </Link>
             <ul>
                 <li>
                     <Link to="/">Home</Link>
