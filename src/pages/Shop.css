@@ -25,6 +25,35 @@
   object-fit: contain;
 }
 
+.qty-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.qty-controls input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.qty-controls button {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
 .product-card button {
   background-color: #6a0dad;
   color: white;

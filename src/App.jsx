@@ -10,7 +10,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar cartCount = {cart.length} />
+      <Navbar cartCount = {cart.reduce((sum, item) => sum + item.quantity, 0)} />
       <Routes>
         <Route path = "/" element = {<Home/>} />
         <Route path = "/shop" element = {<Shop cart = {cart} setCart = {setCart}/>} />
