@@ -6,6 +6,7 @@ const Shop = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [quantities, setQuantities] = useState({});
+  const [addedMap, setAddedMap] = useState({});
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -40,6 +41,8 @@ const Shop = ({ cart, setCart }) => {
       setCart([...cart, { ...product, quantity: qty }]);
     }
     setQuantities(prev => ({ ...prev, [product.id]: 1 }));
+    setAddedMap(prev => ({ ...prev, [product.id]: true }));
+    setTimeout(() => setAddedMap(prev => ({ ...prev, [product.id]: false })), 1500);
   };
 
   if (loading) return <h2> loading...</h2>
@@ -63,7 +66,9 @@ const Shop = ({ cart, setCart }) => {
               />
               <button onClick={() => setQty(product.id, getQty(product.id) + 1)}>+</button>
             </div>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <button onClick={() => addToCart(product)}>
+              {addedMap[product.id] ? 'Added!' : 'Add to Cart'}
+            </button>
           </div>
         ))}
       </div>

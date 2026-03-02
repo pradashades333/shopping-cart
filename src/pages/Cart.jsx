@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = ({ cart, setCart }) => {
@@ -31,14 +32,17 @@ const Cart = ({ cart, setCart }) => {
     <div>
       <h1>Your Cart</h1>
       {cart.length === 0 ? (
-        <p>Your cart is empty!</p>
+        <div>
+          <p>Your cart is empty!</p>
+          <Link to="/shop"><button>Go Shopping</button></Link>
+        </div>
       ) : (
         <div>
           {cart.map((item) => (
             <div key={item.id} className="cart-item">
               <img src={item.image} alt={item.title} width="100" />
               <h3>{item.title}</h3>
-              <p>${item.price}</p>
+              <p>${item.price} × {item.quantity} = <strong>${(item.price * item.quantity).toFixed(2)}</strong></p>
 
               <div>
                 <button onClick={() => decreaseQuantity(item.id)}>-</button>
