@@ -6,6 +6,22 @@ h1 {
   margin: 28px 0 8px;
 }
 
+.search-bar {
+  display: block;
+  margin: 0 auto 16px;
+  padding: 8px 14px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: #6a0dad;
+  box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2);
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;

@@ -7,6 +7,7 @@ const Shop = ({ cart, setCart }) => {
   const [loading, setLoading] = useState(true);
   const [quantities, setQuantities] = useState({});
   const [addedMap, setAddedMap] = useState({});
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -47,11 +48,22 @@ const Shop = ({ cart, setCart }) => {
 
   if (loading) return <h2> loading...</h2>
 
+  const filtered = products.filter((p) =>
+    p.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <h1> buy the new collection</h1>
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Search products..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <div className="product-grid">
-        {products.map((product) => (
+        {filtered.map((product) => (
           <div key={product.id} className="product-card">
             <img src={product.image} alt={product.title} width="100" />
             <h3>{product.title}</h3>
