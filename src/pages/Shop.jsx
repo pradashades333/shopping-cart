@@ -62,6 +62,7 @@ const Shop = ({ cart, setCart }) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      {filtered.length === 0 && <p className="no-results">No products found.</p>}
       <div className="product-grid">
         {filtered.map((product) => (
           <div key={product.id} className="product-card">

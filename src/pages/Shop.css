@@ -22,6 +22,12 @@ h1 {
   box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2);
 }
 
+.no-results {
+  text-align: center;
+  color: #888;
+  margin-top: 40px;
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
